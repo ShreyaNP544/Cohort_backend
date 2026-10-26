@@ -27,6 +27,9 @@ const express = require("express");
 
 const app = express();
 
+// middleware for accepting data from frontend
+app.use(express.json());
+
 app.get("/", (req, res) => {
     res.send("Got the server right through express get method..");
 });
@@ -274,6 +277,13 @@ app.get("/products", (req, res) => {
     }
   }
  ]);
+});
+
+app.post("/create", (req, res) => {
+
+    console.log(req.body);
+
+    res.send("Checking POST method");
 });
 
 app.listen(3000, () =>{
